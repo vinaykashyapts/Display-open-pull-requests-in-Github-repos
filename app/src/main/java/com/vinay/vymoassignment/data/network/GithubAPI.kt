@@ -13,10 +13,13 @@ interface GithubAPI {
 
 
     companion object{
-        operator fun invoke() : GithubAPI {
+        operator fun invoke(ownerName: String?, repoName: String?) : GithubAPI {
+
+            val URL = "https://api.github.com/repos/" + ownerName + "/" + repoName + "/"
+
             return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://api.github.com/repos/square/okhttp/")
+                .baseUrl(URL)
                 .build()
                 .create(GithubAPI::class.java)
         }

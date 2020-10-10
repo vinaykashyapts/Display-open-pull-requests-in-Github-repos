@@ -5,6 +5,7 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface GetData {
+    /* Not in use */
     @GET("pulls")
     fun getData() : Observable<List<RepoPulls>>
 }

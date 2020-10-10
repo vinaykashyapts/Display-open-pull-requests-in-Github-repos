@@ -31,5 +31,4 @@ class PullsAdapter(
     inner class PullsViewHolder(
         val repoItemBinding: RepoItemBinding
     ) : RecyclerView.ViewHolder(repoItemBinding.root)
-
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -29,14 +28,7 @@ class ListRepoDataFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val model=ViewModelProviders.of(activity!!).get(InputRepoDetailsViewModel::class.java)
-
-        model.message.observe(viewLifecycleOwner, object : Observer<Any> {
-            override fun onChanged(o: Any?) {
-                Toast.makeText(activity, model.message.toString(), Toast.LENGTH_LONG).show();
-            }
-        })
-        val api = GithubAPI()
+        val api = GithubAPI(requireArguments().getString(getString(R.string.git_owner_name)), requireArguments().getString(getString(R.string.git_repo_name)))
         val repository = RepoPullsRepository(api)
 
         factory = PullsViewModelFactory(repository)

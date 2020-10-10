@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputBinding
 import android.widget.Button
+import android.widget.EditText
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.vinay.vymoassignment.R
@@ -19,6 +21,7 @@ class InputRepoDetailsFragment : Fragment() {
         fun newInstance() = InputRepoDetailsFragment()
     }
     private lateinit var viewModel: InputRepoDetailsViewModel
+    private lateinit var vm : InputRepoDetailsFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,19 +34,23 @@ class InputRepoDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this!!).get(InputRepoDetailsViewModel::class.java)
 
+        val ownerName=view.findViewById<View>(R.id.gitOwnerName) as EditText
+        val repoName=view.findViewById<View>(R.id.gitRepoName) as EditText
         val btn=view.findViewById<View>(R.id.submit) as Button
 
         btn.setOnClickListener {view ->
 
-            lateinit var vm : InputRepoDetailsFragmentBinding
-            lateinit var input : Input
-            input.owner_name = vm.inputBinding.owner_name
-            input.repo_name = vm.inputBinding.repo_name
+            var input = Input(ownerName.text.toString(), repoName.text.toString())
 
             viewModel!!.setMsgCommunicator(input)
 
             val myfragment = ListRepoDataFragment()
-            //myfragment.arguments = Bundle().apply { putParcelable() }
+
+            val args = Bundle()
+            args.putString(getString(R.string.git_owner_name), input.owner_name)
+            args.putString(getString(R.string.git_repo_name), input.repo_name)
+            myfragment.arguments = args
+
             requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.contentFragment, myfragment)
             .commit()

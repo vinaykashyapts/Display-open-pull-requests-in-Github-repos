@@ -50,7 +50,7 @@
                         android:hint="@string/git_owner_name"
                         android:padding="20dp"
                         android:textSize="25dp"
-                        android:text="@{input.owner_name}"/>
+                        android:text="@{inputBinding.owner_name}"/>
 
                     <EditText
                         android:id="@+id/gitRepoName"
@@ -60,7 +60,7 @@
                         android:hint="@string/git_repo_name"
                         android:padding="20dp"
                         android:textSize="25dp"
-                        android:text="@{input.repo_name}"/>
+                        android:text="@{inputBinding.repo_name}"/>
 
                 </LinearLayout>
 
