@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputBinding
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -39,6 +40,12 @@ class InputRepoDetailsFragment : Fragment() {
         val btn=view.findViewById<View>(R.id.submit) as Button
 
         btn.setOnClickListener {view ->
+
+            if(ownerName.text.isNullOrEmpty() || repoName.text.isNullOrEmpty()) {
+                Toast.makeText(activity, "Enter details", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
 
             var input = Input(ownerName.text.toString(), repoName.text.toString())
 

@@ -10,8 +10,7 @@
             type="com.vinay.vymoassignment.data.models.Input" />
     </data>
 
-    <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -49,8 +48,8 @@
                         android:layout_alignParentTop="true"
                         android:hint="@string/git_owner_name"
                         android:padding="20dp"
-                        android:textSize="25dp"
-                        android:text="@{inputBinding.owner_name}"/>
+                        android:text="@{inputBinding.owner_name}"
+                        android:textSize="16sp" />
 
                     <EditText
                         android:id="@+id/gitRepoName"
@@ -59,8 +58,8 @@
                         android:layout_alignParentTop="true"
                         android:hint="@string/git_repo_name"
                         android:padding="20dp"
-                        android:textSize="25dp"
-                        android:text="@{inputBinding.repo_name}"/>
+                        android:text="@{inputBinding.repo_name}"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -72,7 +71,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="30dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="16sp"
                     android:background="@color/colorAccent"
                     android:text="@string/submit"
                     android:textColor="@color/colorAccent" />
