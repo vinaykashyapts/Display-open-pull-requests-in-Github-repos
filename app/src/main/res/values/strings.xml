@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">VymoAssignment</string>
+
+    <string name="git_owner_name">Github owner name</string>
+    <string name="git_repo_name">Repo name</string>
+    <string name="submit">Submit</string>
+
+    <string name="pull_title">Pull Title: </string>
+    <string name="pr_number">PR Number: </string>
+    <string name="pull_status">Pull Status: </string>
+    <string name="created">Created: </string>
+
+    <string name="format">%1$td/%1$tm/%1$tY</string>
+
 </resources>
